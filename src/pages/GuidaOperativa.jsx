@@ -70,7 +70,7 @@ export default function GuidaOperativa() {
         <title>Come Funziona il Trasporto Moto | Guida AADU Trasporti</title>
         <meta name="description" content="Scopri il metodo AADU per il trasporto della tua moto: ritiro door-to-door, imballaggio protetto e transito sicuro con assicurazione inclusa." />
         <meta name="keywords" content="come spedire moto, sicurezza trasporto moto, assicurazione spedizione moto, guida logistica" />
-        <link rel="canonical" href="https://hypetf.github.io/aadu/guida" />
+        <link rel="canonical" href="https://aadutrasporti.com/guida" />
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 py-20">
         

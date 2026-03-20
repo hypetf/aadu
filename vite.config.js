@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/aadu/', // Base URL for the hypetf/aadu repository
+  base: '/', // Base URL for Cloudflare Pages (typically root)
   plugins: [
     tailwindcss(),
     react()

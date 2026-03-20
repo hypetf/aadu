@@ -50,7 +50,7 @@ export default function Calcolatore() {
         <title>Calcola Preventivo Trasporto Moto | AADU Trasporti</title>
         <meta name="description" content="Ricevi un preventivo immediato per il trasporto della tua moto, di merci su pallet o di oggetti ingombranti in tutta Italia. Servizio rapido e sicuro su WhatsApp." />
         <meta name="keywords" content="preventivo trasporto moto, costo spedizione moto, preventivo trasporto pallet, calcolo costi logistica" />
-        <link rel="canonical" href="https://hypetf.github.io/aadu/preventivi" />
+        <link rel="canonical" href="https://aadutrasporti.com/preventivi" />
       </Helmet>
       
       {/* Progress Bar - Based on screenshot */}

@@ -32,7 +32,7 @@ export default function Business() {
         <title>Servizi Business e Logistica Aziendale | AADU Trasporti</title>
         <meta name="description" content="Soluzioni logistiche dedicate per aziende. Trasporto pallet, merci ingombranti e gestione spedizioni programmate in tutta Italia." />
         <meta name="keywords" content="logistica aziendale, trasporto pallet b2b, corriere dedicato aziende, gestione merci ingombranti" />
-        <link rel="canonical" href="https://hypetf.github.io/aadu/business" />
+        <link rel="canonical" href="https://aadutrasporti.com/business" />
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 py-20">
         

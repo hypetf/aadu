@@ -64,12 +64,12 @@ export default function VetrinaLanding() {
     <div className="flex flex-col min-h-screen bg-[#fafafa]">
       <Helmet>
         <title>AADU Trasporti | Trasporto Moto Specialistico e Logistica Nazionale</title>
-        <meta name="description" content="AADU Trasporti è lo specialista del trasporto moto door-to-door in tutta Italia. Offriamo anche soluzioni di logistica flessibile per pallet, mobili e merci ingombranti." />
-        <meta name="keywords" content="trasporto moto, corriere moto, spedizione moto italia, trasloco moto, aadu trasporti, logistica pallet, trasporto mobili" />
+        <meta name="description" content="AADU Trasporti è lo specialista del trasporto moto door-to-door in tutta Italia. Offriamo anche soluzioni di logistica flessibile per pallet e carichi industriali." />
+        <meta name="keywords" content="trasporto moto, corriere moto, spedizione moto italia, aadu trasporti, logistica pallet, logistica industriale" />
         <meta property="og:title" content="AADU Trasporti | Trasporto Moto e Logistica" />
         <meta property="og:description" content="Servizio specialistico di trasporto moto ed eccellenza nella logistica nazionale." />
         <meta property="og:image" content={vanPng} />
-        <link rel="canonical" href="https://hypetf.github.io/aadu/" />
+        <link rel="canonical" href="https://aadutrasporti.com/" />
       </Helmet>
 
       {/* Hero */}
@@ -121,7 +121,7 @@ export default function VetrinaLanding() {
           <div className="flex flex-col justify-center">
             <h2 className="font-heading font-black text-5xl md:text-6xl text-zinc-900 mb-8 leading-[1.1]">Logistica su misura<br />per ogni esigenza.</h2>
             <p className="text-zinc-500 mb-12 text-lg leading-relaxed max-w-xl">
-              Dal trasporto pallet per la tua azienda alla spedizione di mobili per il tuo nuovo ufficio. Semplifichiamo la complessità del trasporto con un approccio diretto e trasparente.
+              Soluzioni di logistica flessibile per la tua azienda. Dalla gestione dei pallet ai carichi speciali, semplifichiamo ogni trasporto con un approccio diretto e trasparente.
             </p>
             
             <div className="space-y-10">
@@ -161,7 +161,7 @@ export default function VetrinaLanding() {
                 <div className="w-6 h-6 border-2 border-[#0ea5e9] rotate-45 transform group-hover:rotate-[135deg] transition-transform duration-500"></div>
              </div>
              <h3 className="font-heading font-black text-3xl text-zinc-900 mb-6 relative z-10">Logistica e<br />Merci Generali</h3>
-             <p className="text-zinc-500 mb-10 text-lg leading-relaxed relative z-10">Spedizioni sicure per pallet, mobili e carichi commerciali in tutta Italia.</p>
+             <p className="text-zinc-500 mb-10 text-lg leading-relaxed relative z-10">Spedizioni sicure per pallet e carichi industriali in tutta Italia.</p>
              <ul className="space-y-4 mb-12 text-zinc-600 font-medium relative z-10">
                <li className="flex items-center"><Check className="w-5 h-5 text-[#0ea5e9] mr-3" /> Door-to-door</li>
                <li className="flex items-center"><Check className="w-5 h-5 text-[#0ea5e9] mr-3" /> Gestione Pallet</li>
@@ -177,9 +177,6 @@ export default function VetrinaLanding() {
       {/* Bipartite Section with ID for navbar scroll */}
       <section id="moto" className="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto border-2 border-zinc-100 w-full mb-32 bg-white shadow-2xl shadow-zinc-200/40">
         <div className="p-12 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r-2 border-zinc-100">
-          <div className="bg-white border-2 border-zinc-100 w-16 h-16 flex justify-center items-center mb-10">
-            <svg className="w-8 h-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19V6m0 13a3 3 0 100-6 3 3 0 000 6zM12 6a3 3 0 100-6 3 3 0 000 6z"></path></svg>
-          </div>
           <h3 className="font-heading font-black text-4xl text-zinc-900 mb-6">Trasporto Moto Specialistico</h3>
           <p className="text-zinc-500 mb-10 text-xl leading-relaxed">Il nostro fiore all'occhiello. Attrezzatura dedicata e massima cura per la tua passione.</p>
           <ul className="space-y-5 mb-14 text-zinc-600 font-medium">
@@ -283,6 +280,18 @@ export default function VetrinaLanding() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16 flex justify-center">
+            <a 
+              href="https://g.page/r/CebT10pKliiSEBM/review" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-[#0d6efd] font-black uppercase tracking-[0.2em] text-xs border-b-2 border-[#0d6efd] pb-1 hover:text-blue-700 hover:border-blue-700 transition-all group"
+            >
+              Scrivici una recensione 
+              <span className="ml-3 transform group-hover:translate-x-1 transition-transform">→</span>
+            </a>
           </div>
         </div>
       </section>
