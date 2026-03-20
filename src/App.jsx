@@ -57,8 +57,8 @@ function AppShell({ children }) {
               <Link to="/preventivi" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Quanto costa?</Link>
               <Link to="/guida" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Come funziona</Link>
               <Link to="/business" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Business</Link>
-              <Link 
-                to="/preventivi" 
+              <Link
+                to="/preventivi"
                 className="ml-4 bg-[#0d6efd] hover:bg-blue-700 text-white font-bold text-sm px-6 py-2.5 rounded-full transition-colors"
               >
                 Richiedi Preventivo
@@ -105,7 +105,7 @@ function AppShell({ children }) {
                 Soluzioni di trasporto flessibili e professionali in tutta Italia. Specialisti nel trasporto moto door-to-door.
               </p>
             </div>
-            
+
             <div>
               <h4 className="font-bold text-zinc-900 mb-4 uppercase tracking-widest text-[10px]">Servizi</h4>
               <ul className="space-y-3">
@@ -115,7 +115,7 @@ function AppShell({ children }) {
                 <li><Link to="/guida" className="hover:text-zinc-900">Come Funziona</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-bold text-zinc-900 mb-4 uppercase tracking-widest text-[10px]">Contatti</h4>
               <ul className="space-y-3">
@@ -125,14 +125,14 @@ function AppShell({ children }) {
               </ul>
             </div>
           </div>
-          
+
           <div className="mt-16 pt-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center text-[11px] text-zinc-400 font-bold uppercase tracking-widest gap-4">
             <p>© 2026 AADU Trasporti.</p>
             <div className="flex space-x-8">
               <Link to="/privacy" className="hover:text-zinc-900 transition-colors">Privacy Policy</Link>
               <Link to="/terms" className="hover:text-zinc-900 transition-colors">Termini di Servizio</Link>
             </div>
-            <p>P.IVA 01234567890</p>
+            <p>P.IVA 05082640235</p>
           </div>
         </div>
       </footer>
