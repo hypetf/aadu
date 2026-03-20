@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Outfit", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --color-aadu-blue: #0ea5e9;
+  --color-aadu-blue-dark: #0284c7;
+  --color-aadu-red: #ef4444; 
+  --color-aadu-red-dark: #dc2626;
+  --color-aadu-dark: #09090b; 
+  --color-aadu-light: #fafafa;
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[#fafafa] text-zinc-900 font-sans antialiased selection:bg-[#0ea5e9] selection:text-white;
+  }
+  
+  /* Squared Aesthetic global base styles */
+  input, textarea, select, button {
+    @apply rounded-none;
+  }
+}
+
+/* Micro animations */
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
