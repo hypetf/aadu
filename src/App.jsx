@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import logoPng from './assets/logo.png';
 
 // Import Screens
@@ -57,8 +58,8 @@ function AppShell({ children }) {
               <Link to="/preventivi" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Quanto costa?</Link>
               <Link to="/guida" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Come funziona</Link>
               <Link to="/business" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Business</Link>
-              <Link
-                to="/preventivi"
+              <Link 
+                to="/preventivi" 
                 className="ml-4 bg-[#0d6efd] hover:bg-blue-700 text-white font-bold text-sm px-6 py-2.5 rounded-full transition-colors"
               >
                 Richiedi Preventivo
@@ -105,7 +106,7 @@ function AppShell({ children }) {
                 Soluzioni di trasporto flessibili e professionali in tutta Italia. Specialisti nel trasporto moto door-to-door.
               </p>
             </div>
-
+            
             <div>
               <h4 className="font-bold text-zinc-900 mb-4 uppercase tracking-widest text-[10px]">Servizi</h4>
               <ul className="space-y-3">
@@ -115,17 +116,17 @@ function AppShell({ children }) {
                 <li><Link to="/guida" className="hover:text-zinc-900">Come Funziona</Link></li>
               </ul>
             </div>
-
+            
             <div>
               <h4 className="font-bold text-zinc-900 mb-4 uppercase tracking-widest text-[10px]">Contatti</h4>
               <ul className="space-y-3">
-                <li>Email: info@aadutrasporti.it</li>
+                <li>Email: aadu.trasporti@gmail.com</li>
                 <li>Tel: <a href={`tel:${phoneNumber}`} className="hover:text-zinc-900">{displayPhone}</a></li>
                 <li>WhatsApp: <a href={`https://wa.me/${phoneNumber.replace('+', '')}`} className="hover:text-zinc-900">{displayPhone}</a></li>
               </ul>
             </div>
           </div>
-
+          
           <div className="mt-16 pt-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center text-[11px] text-zinc-400 font-bold uppercase tracking-widest gap-4">
             <p>© 2026 AADU Trasporti.</p>
             <div className="flex space-x-8">
@@ -142,18 +143,20 @@ function AppShell({ children }) {
 
 export default function App() {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
-      <ScrollHandler />
-      <AppShell>
-        <Routes>
-          <Route path="/" element={<VetrinaLanding />} />
-          <Route path="/preventivi" element={<Calcolatore />} />
-          <Route path="/guida" element={<GuidaOperativa />} />
-          <Route path="/business" element={<Business />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-        </Routes>
-      </AppShell>
-    </Router>
+    <HelmetProvider>
+      <Router basename={import.meta.env.BASE_URL}>
+        <ScrollHandler />
+        <AppShell>
+          <Routes>
+            <Route path="/" element={<VetrinaLanding />} />
+            <Route path="/preventivi" element={<Calcolatore />} />
+            <Route path="/guida" element={<GuidaOperativa />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+          </Routes>
+        </AppShell>
+      </Router>
+    </HelmetProvider>
   );
 }

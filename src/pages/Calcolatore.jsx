@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Bike, Box, Archive, Info, MapPin, Calendar, ChevronRight, ArrowLeft, MessageCircle, Send } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const waNumber = "393336563426";
 const categoryLabels = {
@@ -45,6 +46,12 @@ export default function Calcolatore() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] flex flex-col items-center pt-16 pb-20">
+      <Helmet>
+        <title>Calcola Preventivo Trasporto Moto | AADU Trasporti</title>
+        <meta name="description" content="Ricevi un preventivo immediato per il trasporto della tua moto, di merci su pallet o di oggetti ingombranti in tutta Italia. Servizio rapido e sicuro su WhatsApp." />
+        <meta name="keywords" content="preventivo trasporto moto, costo spedizione moto, preventivo trasporto pallet, calcolo costi logistica" />
+        <link rel="canonical" href="https://hypetf.github.io/aadu/preventivi" />
+      </Helmet>
       
       {/* Progress Bar - Based on screenshot */}
       <div className="w-full max-w-4xl mx-auto mt-10 px-4">
@@ -257,15 +264,10 @@ export default function Calcolatore() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <button 
-                className="bg-[#b3b3b3] hover:bg-zinc-900 text-white font-black py-6 flex items-center justify-center tracking-widest text-sm transition-all"
-              >
-                INVIA RICHIESTA <Send className="ml-3 w-4 h-4" />
-              </button>
+            <div className="flex">
               <button 
                 onClick={handleWhatsApp}
-                className="bg-[#c2fadd] hover:bg-[#aef4cf] text-zinc-600 font-black py-6 flex items-center justify-center tracking-widest text-sm transition-all"
+                className="w-full bg-[#c2fadd] hover:bg-[#aef4cf] text-zinc-600 font-black py-6 flex items-center justify-center tracking-widest text-sm transition-all"
               >
                 <MessageCircle className="mr-3 w-5 h-5 text-gray-500 fill-gray-500" /> WHATSAPP SUBITO
               </button>

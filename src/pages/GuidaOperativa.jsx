@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, Plus, Minus, Calculator, Truck, ShieldCheck, MapPin, CheckCircle, Phone } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const faqsFromTxt = [
   {
@@ -65,6 +66,12 @@ export default function GuidaOperativa() {
 
   return (
     <div className="bg-[#fafafa] min-h-screen">
+      <Helmet>
+        <title>Come Funziona il Trasporto Moto | Guida AADU Trasporti</title>
+        <meta name="description" content="Scopri il metodo AADU per il trasporto della tua moto: ritiro door-to-door, imballaggio protetto e transito sicuro con assicurazione inclusa." />
+        <meta name="keywords" content="come spedire moto, sicurezza trasporto moto, assicurazione spedizione moto, guida logistica" />
+        <link rel="canonical" href="https://hypetf.github.io/aadu/guida" />
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 py-20">
         
         {/* Header matching screenshot */}
@@ -224,9 +231,12 @@ export default function GuidaOperativa() {
                >
                  <MessageCircle className="w-5 h-5 mr-3" /> PARLA CON NOI SU WHATSAPP
                </a>
-               <button className="bg-zinc-900 hover:bg-black text-white font-bold text-sm tracking-wide px-8 py-4 flex items-center justify-center transition-colors">
+               <a 
+                 href="tel:+393336563426"
+                 className="bg-zinc-900 hover:bg-black text-white font-bold text-sm tracking-wide px-8 py-4 flex items-center justify-center transition-colors"
+               >
                  <Phone className="w-5 h-5 mr-3" /> CHIAMACI ORA: +39 333 656 3426
-               </button>
+               </a>
             </div>
           </div>
         </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Building2, MessageCircle, Send, CheckCircle2, Phone, Mail, User } from 'lucide-react';
 
+import { Helmet } from 'react-helmet-async';
+
 const phoneNumber = "+39 333 656 3426";
 const waNumber = "393336563426";
 
@@ -26,6 +28,12 @@ export default function Business() {
 
   return (
     <div className="bg-[#fafafa] min-h-screen">
+      <Helmet>
+        <title>Servizi Business e Logistica Aziendale | AADU Trasporti</title>
+        <meta name="description" content="Soluzioni logistiche dedicate per aziende. Trasporto pallet, merci ingombranti e gestione spedizioni programmate in tutta Italia." />
+        <meta name="keywords" content="logistica aziendale, trasporto pallet b2b, corriere dedicato aziende, gestione merci ingombranti" />
+        <link rel="canonical" href="https://hypetf.github.io/aadu/business" />
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 py-20">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -119,7 +127,7 @@ export default function Business() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full bg-zinc-50 border-2 border-zinc-100 p-4 pl-12 focus:border-zinc-900 outline-none transition-all font-medium" 
-                    placeholder="info@azienda.it"
+                    placeholder="aadu.trasporti@gmail.com"
                   />
                 </div>
               </div>
