@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Bike, Box, Archive, Info, MapPin, Calendar, ChevronRight, ArrowLeft, MessageCircle, Send } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import whatsappIco from '../assets/whatsapp-ico.webp';
 
 const waNumber = "393336563426";
 const categoryLabels = {
@@ -31,15 +32,14 @@ export default function Calcolatore() {
   const prevStep = () => setStep(step - 1);
 
   const handleWhatsApp = () => {
-    const message = `Richiesta Preventivo AADU:\n\n` +
-      `Tipo: ${categoryLabels[formData.type]}\n` +
-      `Percorso: Da ${formData.pickup} a ${formData.delivery}\n` +
-      `Dettagli: ${formData.model}\n` +
-      `Data: ${formData.date}\n\n` +
-      `Cliente: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Tel: ${formData.phone}`;
-    
+    const message = `Ciao AADU! Sono ${formData.name}.\n\n` +
+      `Vorrei richiedere un preventivo per il trasporto di: *${categoryLabels[formData.type]}* (${formData.model}).\n\n` +
+      `📍 *Percorso:* Da ${formData.pickup} a ${formData.delivery}\n` +
+      `📅 *Data desiderata:* ${formData.date}\n\n` +
+      `Lascio i miei contatti per essere ricontattato:\n` +
+      `📧 Email: ${formData.email}\n` +
+      `📞 Tel: ${formData.phone}`;
+
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${waNumber}?text=${encoded}`, '_blank');
   };
@@ -52,7 +52,7 @@ export default function Calcolatore() {
         <meta name="keywords" content="preventivo trasporto moto, costo spedizione moto, preventivo trasporto pallet, calcolo costi logistica" />
         <link rel="canonical" href="https://aadutrasporti.com/preventivi" />
       </Helmet>
-      
+
       {/* Progress Bar - Based on screenshot */}
       <div className="w-full max-w-4xl mx-auto mt-10 px-4">
         <div className="flex items-center justify-between">
@@ -72,9 +72,9 @@ export default function Calcolatore() {
               CONTATTO
             </div>
           </div>
-          
+
           {step > 1 && (
-            <button 
+            <button
               onClick={prevStep}
               className="text-[11px] font-black text-zinc-400 uppercase tracking-widest hover:text-zinc-900 flex items-center"
             >
@@ -85,17 +85,17 @@ export default function Calcolatore() {
       </div>
 
       <div className="w-full max-w-4xl mx-auto mt-16 px-4">
-        
+
         {/* STEP 1: TYPOLOGIA */}
         {step === 1 && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h1 className="font-heading font-black text-6xl text-zinc-900 mb-2">Cosa dobbiamo</h1>
             <h1 className="font-heading font-black text-6xl text-[#0d6efd] italic -tracking-wide mb-8">trasportare?</h1>
             <p className="text-zinc-400 text-xl font-medium mb-12">Scegli la categoria per un calcolo più preciso del tuo preventivo.</p>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {['moto', 'pallet', 'ingombro', 'altro'].map((cat) => (
-                <div 
+                <div
                   key={cat}
                   onClick={() => setFormData({ ...formData, type: cat })}
                   className={`cursor-pointer p-8 border-2 transition-all relative ${formData.type === cat ? 'border-[#0d6efd] bg-white shadow-xl shadow-blue-500/5' : 'border-zinc-100 bg-white hover:border-zinc-200'}`}
@@ -125,7 +125,7 @@ export default function Calcolatore() {
                 <Info className="w-5 h-5 text-[#0d6efd] shrink-0 mr-4" />
                 <p><strong>Non trovi la tua categoria?</strong> Seleziona "Altro" e descrivi il tuo oggetto nel passaggio successivo. I nostri operatori valuteranno la soluzione migliore per te.</p>
               </div>
-              <button 
+              <button
                 onClick={nextStep}
                 className="ml-auto bg-[#0d6efd] hover:bg-blue-700 text-white font-black px-12 py-5 flex items-center tracking-widest text-sm transition-all"
               >
@@ -150,7 +150,7 @@ export default function Calcolatore() {
                   <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-3">Ritiro da</label>
                   <div className="relative border-b-2 border-zinc-100 focus-within:border-[#0d6efd] bg-white p-2">
                     <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#0d6efd]" />
-                    <input 
+                    <input
                       name="pickup"
                       value={formData.pickup}
                       onChange={handleChange}
@@ -164,7 +164,7 @@ export default function Calcolatore() {
                   <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-3">Data desiderata</label>
                   <div className="relative border-b-2 border-zinc-100 focus-within:border-[#0d6efd] bg-white p-2">
                     <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-300" />
-                    <input 
+                    <input
                       type="date"
                       name="date"
                       value={formData.date}
@@ -180,7 +180,7 @@ export default function Calcolatore() {
                   <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-3">Consegna a</label>
                   <div className="relative border-2 border-zinc-100 focus-within:border-zinc-900 bg-white">
                     <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-300" />
-                    <input 
+                    <input
                       name="delivery"
                       value={formData.delivery}
                       onChange={handleChange}
@@ -194,7 +194,7 @@ export default function Calcolatore() {
                   <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-3">Marca e Modello</label>
                   <div className="relative border-2 border-zinc-100 focus-within:border-zinc-900 bg-white">
                     <Box className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-300" />
-                    <input 
+                    <input
                       name="model"
                       value={formData.model}
                       onChange={handleChange}
@@ -207,7 +207,7 @@ export default function Calcolatore() {
             </div>
 
             <div className="mt-16 bg-white border-2 border-zinc-100 p-8 flex items-center shadow-lg shadow-zinc-200/50">
-               <button 
+              <button
                 onClick={nextStep}
                 disabled={!formData.pickup || !formData.delivery}
                 className="bg-[#b3b3b3] hover:bg-zinc-900 disabled:bg-zinc-200 text-white font-black px-16 py-5 flex items-center tracking-widest text-sm transition-all grayscale hover:grayscale-0"
@@ -230,7 +230,7 @@ export default function Calcolatore() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div>
                 <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-3">Nome Completo</label>
-                <input 
+                <input
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -240,7 +240,7 @@ export default function Calcolatore() {
               </div>
               <div>
                 <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-3">Email</label>
-                <input 
+                <input
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -254,7 +254,7 @@ export default function Calcolatore() {
               <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-3">Cellulare / WhatsApp</label>
               <div className="flex">
                 <div className="bg-zinc-50 border-2 border-zinc-100 p-6 font-bold text-zinc-400 border-r-0">+39</div>
-                <input 
+                <input
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
@@ -265,11 +265,11 @@ export default function Calcolatore() {
             </div>
 
             <div className="flex">
-              <button 
+              <button
                 onClick={handleWhatsApp}
-                className="w-full bg-[#c2fadd] hover:bg-[#aef4cf] text-zinc-600 font-black py-6 flex items-center justify-center tracking-widest text-sm transition-all"
+                className="w-full bg-[#c2fadd] hover:bg-[#25D366] text-zinc-600 hover:text-white font-black py-6 flex items-center justify-center tracking-widest text-sm transition-all"
               >
-                <MessageCircle className="mr-3 w-5 h-5 text-gray-500 fill-gray-500" /> WHATSAPP SUBITO
+                <img src={whatsappIco} alt="WhatsApp" className="mr-3 w-6 h-6 object-contain" /> WHATSAPP SUBITO
               </button>
             </div>
           </div>

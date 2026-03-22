@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, ShieldCheck, Check, X, Star } from 'lucide-react';
+import { MapPin, Phone, ShieldCheck, Check, X, Star, Bike } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import vanPng from '../assets/van.png';
+import bg1 from '../assets/bg1.jpeg';
+import whatsappIco from '../assets/whatsapp-ico.webp';
 
 // Import assets
 const galleryImages = Object.values(
@@ -14,8 +16,8 @@ const sponsorsList = Object.entries(sponsorLogos).map(([path, src]) => {
   const filename = path.split('/').pop() || '';
   // Clean filename for the link: remove extension, fix 'https' prefix if needed
   const cleanLink = filename.replace(/\.(png|jpg|jpeg|webp|svg)$/i, '').replace(/^https/, 'https://');
-  return { 
-    src, 
+  return {
+    src,
     link: cleanLink.startsWith('http') ? cleanLink : `https://${cleanLink}`,
     name: filename
   };
@@ -73,17 +75,17 @@ export default function VetrinaLanding() {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative w-full h-[600px] flex items-center bg-zinc-200 overflow-hidden">
+      <section className="relative w-full h-[650px] flex items-center bg-zinc-200 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={vanPng} 
-            alt="AADU Van per trasporto moto e merci" 
+          <img
+            src={vanPng}
+            alt="AADU Van per trasporto moto e merci"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/60"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-xl animate-in fade-in slide-in-from-left duration-700">
             <h1 className="font-heading font-black text-5xl md:text-6xl text-[#0d6efd] leading-tight mb-6">
@@ -93,10 +95,10 @@ export default function VetrinaLanding() {
               AADU Trasporti: la logistica flessibile per privati e aziende. Dalla merce ingombrante alla tua moto preferita, ce ne prendiamo cura noi.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/preventivi" className="bg-[#0d6efd] hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-md text-center inline-block transition-transform hover:-translate-y-1">
+              <Link to="/preventivi" className="bg-[#0d6efd] hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-none text-center inline-block transition-transform hover:-translate-y-1">
                 Calcola Prezzo
               </Link>
-              <a href={`https://wa.me/${waNumber}`} className="bg-zinc-900 hover:bg-black text-white px-8 py-4 rounded-md text-center flex justify-center items-center transition-transform hover:-translate-y-1">
+              <a href={`https://wa.me/${waNumber}`} className="bg-zinc-900 hover:bg-[#25D366] text-white px-8 py-4 rounded-none text-center flex justify-center items-center transition-transform hover:-translate-y-1 group">
                 <span className="w-2 h-2 rounded-full bg-green-500 mr-3 animate-pulse"></span> Contattaci su WhatsApp
               </a>
             </div>
@@ -116,14 +118,14 @@ export default function VetrinaLanding() {
       {/* Logistica su misura */}
       <section className="py-24 max-w-7xl mx-auto px-4 w-full bg-[#fafafa]">
         <div className="mb-2 text-[#0d6efd] text-xs font-bold uppercase tracking-widest">AFFIDABILITÀ NAZIONALE</div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div className="flex flex-col justify-center">
             <h2 className="font-heading font-black text-5xl md:text-6xl text-zinc-900 mb-8 leading-[1.1]">Logistica su misura<br />per ogni esigenza.</h2>
             <p className="text-zinc-500 mb-12 text-lg leading-relaxed max-w-xl">
               Soluzioni di logistica flessibile per la tua azienda. Dalla gestione dei pallet ai carichi speciali, semplifichiamo ogni trasporto con un approccio diretto e trasparente.
             </p>
-            
+
             <div className="space-y-10">
               <div className="flex items-start">
                 <div className="bg-zinc-100 p-3 rounded-sm mr-6 shrink-0 h-14 w-14 flex items-center justify-center border border-zinc-200">
@@ -154,22 +156,22 @@ export default function VetrinaLanding() {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-white p-12 lg:p-16 border-2 border-zinc-100 shadow-xl shadow-zinc-200/50 flex flex-col relative overflow-hidden group">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-[#0ea5e9]/5 rounded-bl-full transform translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform duration-700"></div>
-             <div className="bg-white border-2 border-zinc-100 shadow-sm w-16 h-16 flex justify-center items-center mb-8 relative z-10">
-                <div className="w-6 h-6 border-2 border-[#0ea5e9] rotate-45 transform group-hover:rotate-[135deg] transition-transform duration-500"></div>
-             </div>
-             <h3 className="font-heading font-black text-3xl text-zinc-900 mb-6 relative z-10">Logistica e<br />Merci Generali</h3>
-             <p className="text-zinc-500 mb-10 text-lg leading-relaxed relative z-10">Spedizioni sicure per pallet e carichi industriali in tutta Italia.</p>
-             <ul className="space-y-4 mb-12 text-zinc-600 font-medium relative z-10">
-               <li className="flex items-center"><Check className="w-5 h-5 text-[#0ea5e9] mr-3" /> Door-to-door</li>
-               <li className="flex items-center"><Check className="w-5 h-5 text-[#0ea5e9] mr-3" /> Gestione Pallet</li>
-               <li className="flex items-center"><Check className="w-5 h-5 text-[#0ea5e9] mr-3" /> Consegne programmate</li>
-             </ul>
-             <Link to="/preventivi" className="mt-auto bg-zinc-900 hover:bg-black text-white text-center font-bold py-5 tracking-wide flex items-center justify-center group/btn relative z-10">
-               SCOPRI DI PIÙ <span className="ml-3 transform group-hover/btn:translate-x-2 transition-transform">&rarr;</span>
-             </Link>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#0ea5e9]/5 rounded-bl-full transform translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform duration-700"></div>
+            <div className="bg-white border-2 border-zinc-100 shadow-sm w-16 h-16 flex justify-center items-center mb-8 relative z-10">
+              <div className="w-6 h-6 border-2 border-[#0ea5e9] rotate-45 transform group-hover:rotate-[135deg] transition-transform duration-500"></div>
+            </div>
+            <h3 className="font-heading font-black text-3xl text-zinc-900 mb-6 relative z-10">Logistica e<br />Merci Generali</h3>
+            <p className="text-zinc-500 mb-10 text-lg leading-relaxed relative z-10">Spedizioni sicure per pallet e carichi industriali in tutta Italia.</p>
+            <ul className="space-y-4 mb-12 text-zinc-600 font-medium relative z-10">
+              <li className="flex items-center"><Check className="w-5 h-5 text-[#0ea5e9] mr-3" /> Door-to-door</li>
+              <li className="flex items-center"><Check className="w-5 h-5 text-[#0ea5e9] mr-3" /> Gestione Pallet</li>
+              <li className="flex items-center"><Check className="w-5 h-5 text-[#0ea5e9] mr-3" /> Consegne programmate</li>
+            </ul>
+            <Link to="/preventivi" className="mt-auto bg-zinc-900 hover:bg-black text-white text-center font-bold py-5 tracking-wide flex items-center justify-center group/btn relative z-10">
+              SCOPRI DI PIÙ <span className="ml-3 transform group-hover/btn:translate-x-2 transition-transform">&rarr;</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -177,31 +179,44 @@ export default function VetrinaLanding() {
       {/* Bipartite Section with ID for navbar scroll */}
       <section id="moto" className="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto border-2 border-zinc-100 w-full mb-32 bg-white shadow-2xl shadow-zinc-200/40">
         <div className="p-12 lg:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r-2 border-zinc-100">
-          <h3 className="font-heading font-black text-4xl text-zinc-900 mb-6">Trasporto Moto Specialistico</h3>
+          <div className="flex items-center mb-6">
+            <Bike className="w-8 h-8 text-[#dc2626] mr-4" />
+            <h3 className="font-heading font-black text-4xl text-zinc-900 mb-0">Trasporto Moto Specialistico</h3>
+          </div>
           <p className="text-zinc-500 mb-10 text-xl leading-relaxed">Il nostro fiore all'occhiello. Attrezzatura dedicata e massima cura per la tua passione.</p>
           <ul className="space-y-5 mb-14 text-zinc-600 font-medium">
-             <li className="flex items-center"><Check className="w-6 h-6 text-red-500 mr-4" /> Ancoraggi professionali</li>
-             <li className="flex items-center"><Check className="w-6 h-6 text-red-500 mr-4" /> Furgoni imbottiti</li>
-             <li className="flex items-center"><Check className="w-6 h-6 text-red-500 mr-4" /> Assicurazione inclusa</li>
+            <li className="flex items-center"><Check className="w-6 h-6 text-red-500 mr-4" /> Ancoraggi professionali</li>
+            <li className="flex items-center"><Check className="w-6 h-6 text-red-500 mr-4" /> Furgoni imbottiti</li>
+            <li className="flex items-center"><Check className="w-6 h-6 text-red-500 mr-4" /> Assicurazione inclusa</li>
           </ul>
           <Link to="/preventivi" className="bg-[#dc2626] hover:bg-red-700 text-white font-bold py-5 text-center tracking-widest text-sm flex items-center justify-center group/moto">
             CALCOLA PREVENTIVO <span className="ml-3 transform group-hover/moto:translate-x-2 transition-transform">&rarr;</span>
           </Link>
         </div>
-        
-        <div className="bg-[#18181b] p-12 lg:p-24 flex flex-col justify-center text-white relative overflow-hidden">
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-red-600/5 rounded-tl-full"></div>
-          <div className="text-red-500 text-xs font-black uppercase tracking-[0.3em] mb-6 flex items-center">
-            <span className="w-3 h-3 border border-red-500 mr-4 rotate-45 inline-block"></span> PASSIONE SU DUE RUOTE
+
+        <div className="relative p-12 lg:p-24 flex flex-col justify-center text-white overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src={bg1}
+              alt="Sfondo Moto"
+              className="w-full h-full object-cover blur-[2px] scale-105"
+            />
+            <div className="absolute inset-0 bg-black/70"></div>
           </div>
-          <h2 className="font-heading font-black text-5xl md:text-6xl mb-10 leading-tight">Un servizio<br />dedicato alla<br />tua moto.</h2>
-          <p className="text-zinc-400 text-xl leading-relaxed mb-12 max-w-lg">
-            Abbiamo creato il servizio che noi stessi vorremmo per le nostre moto. 
-            Furgoni imbottiti, rampe dedicate e sistemi di ancoraggio professionale assicurano che il tuo veicolo arrivi intatto.
-          </p>
-          <a href={`https://wa.me/${waNumber}`} className="font-bold flex items-center hover:text-red-400 transition-colors text-lg italic tracking-tight">
-            Parla con l'esperto Moto <span className="ml-4 font-sans not-italic">&rarr;</span>
-          </a>
+
+          <div className="relative z-10">
+            <div className="text-red-500 text-xs font-black uppercase tracking-[0.3em] mb-6 flex items-center">
+              <span className="w-3 h-3 border border-red-500 mr-4 rotate-45 inline-block"></span> PASSIONE SU DUE RUOTE
+            </div>
+            <h2 className="font-heading font-black text-5xl md:text-6xl mb-10 leading-tight">Un servizio<br />dedicato alla<br />tua moto.</h2>
+            <p className="text-zinc-200 text-xl leading-relaxed mb-12 max-w-lg">
+              Abbiamo creato il servizio che noi stessi vorremmo per le nostre moto.
+              Furgoni imbottiti, rampe dedicate e sistemi di ancoraggio professionale assicurano che il tuo veicolo arrivi intatto.
+            </p>
+            <a href={`https://wa.me/${waNumber}`} className="font-bold flex items-center hover:text-[#25D366] transition-colors text-lg italic tracking-tight group">
+              Parla con l'esperto Moto <span className="ml-4 font-sans not-italic">&rarr;</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -212,17 +227,17 @@ export default function VetrinaLanding() {
             <h2 className="font-heading font-black text-5xl md:text-6xl mb-6 text-zinc-900">In viaggio con noi.</h2>
             <p className="text-zinc-500 text-xl max-w-2xl leading-relaxed font-medium">Ogni trasporto è una storia di cura e professionalità. Scopri alcuni dei nostri ultimi lavori realizzati in tutta Italia.</p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {galleryImages.map((src, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 onClick={() => setSelectedImg(src)}
                 className="aspect-square bg-zinc-100 overflow-hidden group relative cursor-pointer"
               >
-                <img 
-                  src={src} 
-                  alt={`Trasporto AADU ${index + 1}`} 
+                <img
+                  src={src}
+                  alt={`Trasporto AADU ${index + 1}`}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-x-0 bottom-0 py-2 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity text-white text-[10px] font-bold text-center uppercase tracking-widest">
@@ -242,14 +257,14 @@ export default function VetrinaLanding() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24">
             {sponsorsList.map((sponsor, idx) => (
-              <a 
+              <a
                 key={idx}
                 href={sponsor.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-110 h-12 w-auto flex items-center justify-center"
               >
-                 <img src={sponsor.src} alt={sponsor.name} className="max-h-full max-w-[160px] object-contain" />
+                <img src={sponsor.src} alt={sponsor.name} className="max-h-full max-w-[160px] object-contain" />
               </a>
             ))}
           </div>
@@ -261,7 +276,7 @@ export default function VetrinaLanding() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="text-[#0d6efd] text-xs font-black uppercase tracking-[0.3em] mb-6">FEEDBACK</div>
           <h2 className="font-heading font-black text-4xl md:text-5xl text-zinc-900 mb-20 italic">Cosa dicono i nostri clienti.</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
             {testimonials.map((t, idx) => (
               <div key={idx} className="bg-white border-2 border-zinc-100 p-10 shadow-sm transition-transform hover:-translate-y-1 flex flex-col">
@@ -283,13 +298,13 @@ export default function VetrinaLanding() {
           </div>
 
           <div className="mt-16 flex justify-center">
-            <a 
-              href="https://g.page/r/CebT10pKliiSEBM/review" 
-              target="_blank" 
+            <a
+              href="https://g.page/r/CebT10pKliiSEBM/review"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-[#0d6efd] font-black uppercase tracking-[0.2em] text-xs border-b-2 border-[#0d6efd] pb-1 hover:text-blue-700 hover:border-blue-700 transition-all group"
             >
-              Scrivici una recensione 
+              Scrivici una recensione
               <span className="ml-3 transform group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
@@ -299,15 +314,15 @@ export default function VetrinaLanding() {
       {/* Lightbox Modal */}
       {selectedImg && (
         <div className="fixed inset-0 z-[100] bg-black/95 p-4 md:p-10 flex items-center justify-center animate-in fade-in duration-300">
-          <button 
+          <button
             onClick={() => setSelectedImg(null)}
             className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors"
           >
             <X className="w-8 h-8" />
           </button>
-          <img 
-            src={selectedImg} 
-            alt="Ingrandimento Trasporto" 
+          <img
+            src={selectedImg}
+            alt="Ingrandimento Trasporto"
             className="max-w-full max-h-full object-contain shadow-2xl animate-in zoom-in-95 duration-300"
           />
         </div>

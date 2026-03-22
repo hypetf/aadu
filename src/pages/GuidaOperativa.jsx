@@ -73,7 +73,7 @@ export default function GuidaOperativa() {
         <link rel="canonical" href="https://aadutrasporti.com/guida" />
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 py-20">
-        
+
         {/* Header matching screenshot */}
         <div className="mb-24 animate-in fade-in slide-in-from-bottom duration-700">
           <h1 className="font-heading font-black text-6xl md:text-7xl text-zinc-900 mb-8 leading-tight">Il Metodo <span className="text-[#0d6efd] italic -tracking-wide">AADU.</span></h1>
@@ -89,12 +89,11 @@ export default function GuidaOperativa() {
 
           {/* S1 */}
           <div className="relative z-10 w-full group">
-            <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8 overflow-hidden">
-               <div className="absolute inset-0 bg-zinc-900 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-              <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover grayscale opacity-40 mix-blend-multiply group-hover:scale-105 transition-transform duration-700" />
+            <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8">
+              <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Preventivo" />
               <div className="absolute -top-1 left-0 bg-[#0f172a] text-white w-10 h-10 flex justify-center items-center font-mono font-black text-lg">1</div>
-              <div className="absolute -bottom-5 right-5 bg-white border-2 border-[#0d6efd] p-4 text-[#0d6efd] shadow-lg shadow-blue-500/10">
-                <Calculator className="w-6 h-6" />
+              <div className="absolute bottom-3 right-3 bg-white border-2 border-[#0d6efd] p-3 text-[#0d6efd] shadow-lg shadow-blue-500/10 z-10">
+                <Calculator className="w-5 h-5" />
               </div>
             </div>
             <h3 className="font-heading font-black text-2xl italic tracking-tight text-zinc-900 mb-4 uppercase">Richiedi Preventivo</h3>
@@ -105,15 +104,11 @@ export default function GuidaOperativa() {
 
           {/* S2 */}
           <div className="relative z-10 w-full group">
-            <div className="relative border-2 border-zinc-200 bg-[#f1f5f9] h-[260px] mb-8 overflow-hidden">
-              <div className="absolute inset-0 bg-zinc-900 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+            <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8">
+              <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Ritiro" />
               <div className="absolute -top-1 left-0 bg-[#0f172a] text-white w-10 h-10 flex justify-center items-center font-mono font-black text-lg">2</div>
-              <div className="absolute top-4 left-6 text-[11px] font-black text-zinc-300 uppercase tracking-widest">Ritiro Professionale</div>
-              <div className="w-full h-full flex items-center justify-center">
-                 <Truck className="w-24 h-24 text-zinc-200 group-hover:text-zinc-300 transition-colors" />
-              </div>
-              <div className="absolute -bottom-5 right-5 bg-white border-2 border-[#0d6efd] p-4 text-[#0d6efd] shadow-lg shadow-blue-500/10">
-                <Truck className="w-6 h-6" />
+              <div className="absolute bottom-3 right-3 bg-white border-2 border-[#0d6efd] p-3 text-[#0d6efd] shadow-lg shadow-blue-500/10 z-10">
+                <Truck className="w-5 h-5" />
               </div>
             </div>
             <h3 className="font-heading font-black text-2xl italic tracking-tight text-zinc-900 mb-4 uppercase">Ritiro Professionale</h3>
@@ -124,12 +119,11 @@ export default function GuidaOperativa() {
 
           {/* S3 */}
           <div className="relative z-10 w-full group">
-            <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8 overflow-hidden">
-              <div className="absolute inset-0 bg-zinc-900 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover grayscale opacity-40 mix-blend-multiply group-hover:scale-105 transition-transform duration-700" />
+            <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8">
+              {/* <img src="https://images.unsplash.com/photo-1542362567-b05e55939de3?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Transito" /> */}
               <div className="absolute -top-1 left-0 bg-[#0f172a] text-white w-10 h-10 flex justify-center items-center font-mono font-black text-lg">3</div>
-              <div className="absolute -bottom-5 right-5 bg-white border-2 border-[#0d6efd] p-4 text-[#0d6efd] shadow-lg shadow-blue-500/10">
-                <ShieldCheck className="w-6 h-6" />
+              <div className="absolute bottom-3 right-3 bg-white border-2 border-[#0d6efd] p-3 text-[#0d6efd] shadow-lg shadow-blue-500/10 z-10">
+                <ShieldCheck className="w-5 h-5" />
               </div>
             </div>
             <h3 className="font-heading font-black text-2xl italic tracking-tight text-zinc-900 mb-4 uppercase">Transito Sicuro</h3>
@@ -140,15 +134,11 @@ export default function GuidaOperativa() {
 
           {/* S4 */}
           <div className="relative z-10 w-full md:col-start-1 md:w-2/3 group">
-            <div className="relative border-2 border-zinc-200 bg-[#f1f5f9] h-[260px] mb-8 overflow-hidden">
-              <div className="absolute inset-0 bg-zinc-900 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+            <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8">
+              {/* <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a34?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Consegna" /> */}
               <div className="absolute -top-1 left-0 bg-[#0f172a] text-white w-10 h-10 flex justify-center items-center font-mono font-black text-lg">4</div>
-              <div className="absolute top-4 left-6 text-[11px] font-black text-zinc-300 uppercase tracking-widest">Consegna Diretta</div>
-              <div className="w-full h-full flex items-center justify-center">
-                 <MapPin className="w-24 h-24 text-zinc-200 group-hover:text-zinc-300 transition-colors" />
-              </div>
-              <div className="absolute -bottom-5 right-5 bg-white border-2 border-[#0d6efd] p-4 text-[#0d6efd] shadow-lg shadow-blue-500/10">
-                <MapPin className="w-6 h-6" />
+              <div className="absolute bottom-3 right-3 bg-white border-2 border-[#0d6efd] p-3 text-[#0d6efd] shadow-lg shadow-blue-500/10 z-10">
+                <MapPin className="w-5 h-5" />
               </div>
             </div>
             <h3 className="font-heading font-black text-2xl italic tracking-tight text-zinc-900 mb-4 uppercase">Consegna Diretta</h3>
@@ -159,15 +149,11 @@ export default function GuidaOperativa() {
 
           {/* S5 */}
           <div className="relative z-10 w-full md:col-start-2 md:col-span-1 md:-ml-12 lg:ml-0 md:w-[130%] group">
-            <div className="relative border-2 border-zinc-200 bg-[#f1f5f9] h-[260px] mb-8 overflow-hidden">
-              <div className="absolute inset-0 bg-zinc-900 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+            <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8">
+              {/* <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Conferma" /> */}
               <div className="absolute -top-1 left-0 bg-[#0f172a] text-white w-10 h-10 flex justify-center items-center font-mono font-black text-lg">5</div>
-              <div className="absolute top-4 left-6 text-[11px] font-black text-zinc-300 uppercase tracking-widest">Conferma Ricezione</div>
-              <div className="w-full h-full flex items-center justify-center">
-                 <CheckCircle className="w-24 h-24 text-zinc-200 group-hover:text-zinc-300 transition-colors" />
-              </div>
-              <div className="absolute -bottom-5 right-5 bg-white border-2 border-[#0d6efd] p-4 text-[#0d6efd] shadow-lg shadow-blue-500/10">
-                <CheckCircle className="w-6 h-6" />
+              <div className="absolute bottom-3 right-3 bg-white border-2 border-[#0d6efd] p-3 text-[#0d6efd] shadow-lg shadow-blue-500/10 z-10">
+                <CheckCircle className="w-5 h-5" />
               </div>
             </div>
             <h3 className="font-heading font-black text-2xl italic tracking-tight text-zinc-900 mb-4 uppercase">Conferma Ricezione</h3>
@@ -181,26 +167,26 @@ export default function GuidaOperativa() {
         <div className="border-t border-zinc-200 pt-24 mb-32 max-w-4xl">
           <h2 className="font-heading font-black text-5xl text-zinc-900 mb-6 italic tracking-tight">Domande <span className="text-[#0d6efd]">Frequenti.</span></h2>
           <p className="text-zinc-500 text-xl mb-12 font-medium">Tutto quello che c'è da sapere sulla sicurezza, i pagamenti e la logistica dei tuoi oggetti speciali.</p>
-          
+
           <div className="space-y-4">
             {faqsFromTxt.map((faq, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`border-2 transition-all duration-300 overflow-hidden ${openFaq === idx ? 'border-[#0d6efd] bg-white shadow-xl shadow-blue-500/10' : 'border-zinc-200 bg-white hover:border-zinc-300'}`}
               >
-                <div 
+                <div
                   className="p-6 md:p-8 flex justify-between items-center cursor-pointer select-none"
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                 >
                   <div className="flex items-center text-sm md:text-base font-black italic tracking-wide text-zinc-800">
-                    <span className="text-[#0d6efd] mr-5 not-italic font-heading text-2xl opacity-40">?</span> 
+                    <span className="text-[#0d6efd] mr-5 not-italic font-heading text-2xl opacity-40">?</span>
                     {faq.question}
                   </div>
                   <div className={`shrink-0 ml-4 transition-transform duration-300 ${openFaq === idx ? 'rotate-180 text-[#0d6efd]' : 'text-zinc-300'}`}>
                     {openFaq === idx ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                   </div>
                 </div>
-                
+
                 {openFaq === idx && (
                   <div className="px-8 md:px-14 pb-10 animate-in fade-in slide-in-from-top-2 duration-300 text-zinc-500 text-lg leading-relaxed border-t border-zinc-100 pt-6">
                     {faq.hasComplexAnswer ? faq.answer : <p>{faq.answer}</p>}
@@ -214,7 +200,7 @@ export default function GuidaOperativa() {
         {/* Support Dedicato Bottom Box */}
         <div className="border-[6px] border-[#0f172a] bg-white p-12 md:p-24 flex flex-col items-center text-center relative overflow-hidden shadow-2xl shadow-zinc-200">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] font-heading font-black text-zinc-50 z-0 tracking-tighter w-full whitespace-nowrap hidden lg:block select-none pointer-events-none opacity-40">SUPPORT</div>
-          
+
           <div className="relative z-10 w-full py-6">
             <div className="w-20 h-20 bg-[#0d6efd] text-white flex justify-center items-center mx-auto mb-10 shadow-xl shadow-blue-500/20">
               <MessageCircle className="w-8 h-8" />
@@ -223,20 +209,20 @@ export default function GuidaOperativa() {
             <p className="text-xl text-zinc-500 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
               Hai ancora dubbi o esigenze particolari? I nostri esperti sono pronti ad aiutarti in tempo reale.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-               <a 
-                 href="https://wa.me/393336563426"
-                 className="bg-[#25D366] hover:bg-green-600 text-white font-black text-sm uppercase tracking-[0.2em] px-10 py-5 flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20"
-               >
-                 <MessageCircle className="w-5 h-5 mr-3" /> PARLA CON NOI SU WHATSAPP
-               </a>
-               <a 
-                 href="tel:+393336563426"
-                 className="bg-zinc-900 hover:bg-black text-white font-bold text-sm tracking-wide px-8 py-4 flex items-center justify-center transition-colors"
-               >
-                 <Phone className="w-5 h-5 mr-3" /> CHIAMACI ORA: +39 333 656 3426
-               </a>
+              <a
+                href="https://wa.me/393336563426"
+                className="bg-[#25D366] hover:bg-green-600 text-white font-black text-sm uppercase tracking-[0.2em] px-10 py-5 flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20"
+              >
+                <MessageCircle className="w-5 h-5 mr-3" /> PARLA CON NOI SU WHATSAPP
+              </a>
+              <a
+                href="tel:+393336563426"
+                className="bg-zinc-900 hover:bg-black text-white font-bold text-sm tracking-wide px-8 py-4 flex items-center justify-center transition-colors"
+              >
+                <Phone className="w-5 h-5 mr-3" /> CHIAMACI ORA: +39 333 656 3426
+              </a>
             </div>
           </div>
         </div>

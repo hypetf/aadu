@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, Phone, MessageCircle, Calculator, ChevronRight } from 'lucide-react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import logoPng from './assets/logo.png';
 
@@ -36,8 +36,14 @@ function ScrollHandler() {
 
 function AppShell({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isFabExpanded, setIsFabExpanded] = React.useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
   const phoneNumber = "+393336563426";
   const displayPhone = "+39 333 656 3426";
+
+  // Hide FAB on the calculator page itself
+  const showFab = !location.pathname.includes('/preventivi');
 
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans text-zinc-900">
@@ -58,9 +64,9 @@ function AppShell({ children }) {
               <Link to="/preventivi" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Quanto costa?</Link>
               <Link to="/guida" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Come funziona</Link>
               <Link to="/business" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Business</Link>
-              <Link 
-                to="/preventivi" 
-                className="ml-4 bg-[#0d6efd] hover:bg-blue-700 text-white font-bold text-sm px-6 py-2.5 rounded-full transition-colors"
+              <Link
+                to="/preventivi"
+                className="ml-4 bg-[#0d6efd] hover:bg-blue-700 text-white font-bold text-sm px-6 py-2.5 rounded-none transition-colors"
               >
                 Richiedi Preventivo
               </Link>
@@ -106,7 +112,7 @@ function AppShell({ children }) {
                 Soluzioni di trasporto flessibili e professionali in tutta Italia. Specialisti nel trasporto moto door-to-door.
               </p>
             </div>
-            
+
             <div>
               <h4 className="font-bold text-zinc-900 mb-4 uppercase tracking-widest text-[10px]">Servizi</h4>
               <ul className="space-y-3">
@@ -116,7 +122,7 @@ function AppShell({ children }) {
                 <li><Link to="/guida" className="hover:text-zinc-900">Come Funziona</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-bold text-zinc-900 mb-4 uppercase tracking-widest text-[10px]">Contatti</h4>
               <ul className="space-y-3">
@@ -126,7 +132,7 @@ function AppShell({ children }) {
               </ul>
             </div>
           </div>
-          
+
           <div className="mt-16 pt-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center text-[11px] text-zinc-400 font-bold uppercase tracking-widest gap-4">
             <p>© 2026 AADU Trasporti.</p>
             <div className="flex space-x-8">
@@ -137,6 +143,30 @@ function AppShell({ children }) {
           </div>
         </div>
       </footer>
+      {/* Mobile FAB */}
+      {showFab && (
+        <div className="md:hidden fixed bottom-6 right-6 z-[60] flex flex-col items-end">
+          <button
+            onClick={() => {
+              if (isFabExpanded) {
+                navigate('/preventivi');
+                setIsFabExpanded(false);
+              } else {
+                setIsFabExpanded(true);
+              }
+            }}
+            onBlur={() => setTimeout(() => setIsFabExpanded(false), 200)}
+            className={`bg-[#0d6efd] text-white flex items-center shadow-2xl transition-all duration-300 overflow-hidden ${isFabExpanded ? 'px-6 py-4 h-14' : 'p-4 w-14 h-14 justify-center'}`}
+          >
+            {isFabExpanded && (
+              <span className="mr-3 whitespace-nowrap animate-in fade-in slide-in-from-right-4 duration-500 font-bold text-sm">
+                Richiedi Preventivo
+              </span>
+            )}
+            <Calculator className={`w-6 h-6 shrink-0 transition-transform duration-500 ${isFabExpanded ? 'rotate-0' : 'rotate-12'}`} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
