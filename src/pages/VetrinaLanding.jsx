@@ -56,7 +56,13 @@ const testimonials = [
     role: "CLIENTE GOOGLE",
     text: "Servizio e simpatia top",
     stars: 5
-  }
+  },
+  {
+    name: "Damiano Bizzi",
+    role: "CLIENTE GOOGLE",
+    text: "Servizio di trasporto impeccabile, ottima conversazione, cortesia e professionalità. Semplicemente perfetti.",
+    stars: 5
+  },
 ];
 
 export default function VetrinaLanding() {

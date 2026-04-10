@@ -63,7 +63,7 @@ function AppShell({ children }) {
               <Link to="/#moto" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Trasporto Moto</Link>
               <Link to="/preventivi" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Quanto costa?</Link>
               <Link to="/guida" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Come funziona</Link>
-              <Link to="/business" className="font-medium text-sm hover:text-[#0d6efd] transition-colors">Business</Link>
+              <Link to="/business" className="ml-4 border-2 border-[#0d6efd] bg-white text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white font-bold text-[13px] px-6 py-2.5 rounded-none transition-all">Sei un Business?</Link>
               <Link
                 to="/preventivi"
                 className="ml-4 bg-[#0d6efd] hover:bg-blue-700 text-white font-bold text-sm px-6 py-2.5 rounded-none transition-colors"
@@ -87,7 +87,7 @@ function AppShell({ children }) {
               <Link to="/#moto" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 font-medium text-zinc-600">Trasporto Moto</Link>
               <Link to="/preventivi" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 font-medium text-zinc-600">Quanto costa?</Link>
               <Link to="/guida" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 font-medium text-zinc-600">Come funziona</Link>
-              <Link to="/business" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 font-medium text-zinc-600">Business</Link>
+              <Link to="/business" onClick={() => setIsMobileMenuOpen(false)} className="block mx-3 my-2 border-2 border-[#0d6efd] text-[#0d6efd] font-bold text-center py-3">Sei un Business?</Link>
             </div>
           </div>
         )}

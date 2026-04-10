@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { MessageCircle, Plus, Minus, Calculator, Truck, ShieldCheck, MapPin, CheckCircle, Phone } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import img1 from '../assets/guid5.png';
+import img2 from '../assets/guida1.jpeg';
+import img3 from '../assets/gallery/gl8.jpeg';
 
 const faqsFromTxt = [
   {
@@ -90,7 +93,7 @@ export default function GuidaOperativa() {
           {/* S1 */}
           <div className="relative z-10 w-full group">
             <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8">
-              <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Preventivo" />
+              <img src={img2} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Preventivo" />
               <div className="absolute -top-1 left-0 bg-[#0f172a] text-white w-10 h-10 flex justify-center items-center font-mono font-black text-lg">1</div>
               <div className="absolute bottom-3 right-3 bg-white border-2 border-[#0d6efd] p-3 text-[#0d6efd] shadow-lg shadow-blue-500/10 z-10">
                 <Calculator className="w-5 h-5" />
@@ -120,7 +123,7 @@ export default function GuidaOperativa() {
           {/* S3 */}
           <div className="relative z-10 w-full group">
             <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8">
-              {/* <img src="https://images.unsplash.com/photo-1542362567-b05e55939de3?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Transito" /> */}
+              <img src={img3} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Transito" />
               <div className="absolute -top-1 left-0 bg-[#0f172a] text-white w-10 h-10 flex justify-center items-center font-mono font-black text-lg">3</div>
               <div className="absolute bottom-3 right-3 bg-white border-2 border-[#0d6efd] p-3 text-[#0d6efd] shadow-lg shadow-blue-500/10 z-10">
                 <ShieldCheck className="w-5 h-5" />
@@ -150,7 +153,7 @@ export default function GuidaOperativa() {
           {/* S5 */}
           <div className="relative z-10 w-full md:col-start-2 md:col-span-1 md:-ml-12 lg:ml-0 md:w-[130%] group">
             <div className="relative border-2 border-zinc-200 bg-white h-[260px] mb-8">
-              {/* <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Conferma" /> */}
+              <img src={img1} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Conferma" />
               <div className="absolute -top-1 left-0 bg-[#0f172a] text-white w-10 h-10 flex justify-center items-center font-mono font-black text-lg">5</div>
               <div className="absolute bottom-3 right-3 bg-white border-2 border-[#0d6efd] p-3 text-[#0d6efd] shadow-lg shadow-blue-500/10 z-10">
                 <CheckCircle className="w-5 h-5" />

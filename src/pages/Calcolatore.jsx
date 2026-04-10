@@ -11,6 +11,10 @@ const categoryLabels = {
   altro: 'Altro (Carico Speciale)'
 };
 
+const italianCities = [
+  "Agrigento", "Alessandria", "Ancona", "Aosta", "Arezzo", "Ascoli Piceno", "Asti", "Avellino", "Bari", "Barletta-Andria-Trani", "Belluno", "Benevento", "Bergamo", "Biella", "Bologna", "Bolzano", "Brescia", "Brindisi", "Cagliari", "Caltanissetta", "Campobasso", "Caserta", "Catania", "Catanzaro", "Chieti", "Como", "Cosenza", "Cremona", "Crotone", "Cuneo", "Enna", "Fermo", "Ferrara", "Firenze", "Foggia", "Forlì-Cesena", "Frosinone", "Genova", "Gorizia", "Grosseto", "Imperia", "Isernia", "L'Aquila", "La Spezia", "Latina", "Lecce", "Lecco", "Livorno", "Lodi", "Lucca", "Macerata", "Mantova", "Massa-Carrara", "Matera", "Messina", "Milano", "Modena", "Monza e della Brianza", "Napoli", "Novara", "Nuoro", "Oristano", "Padova", "Palermo", "Parma", "Pavia", "Perugia", "Pesaro e Urbino", "Pescara", "Piacenza", "Pisa", "Pistoia", "Pordenone", "Potenza", "Prato", "Ragusa", "Ravenna", "Reggio Calabria", "Reggio Emilia", "Rieti", "Rimini", "Roma", "Rovigo", "Salerno", "Sassari", "Savona", "Siena", "Siracusa", "Sondrio", "Sud Sardegna", "Taranto", "Teramo", "Terni", "Torino", "Trapani", "Trento", "Treviso", "Trieste", "Udine", "Varese", "Venezia", "Verbano-Cusio-Ossola", "Vercelli", "Verona", "Vibo Valentia", "Vicenza", "Viterbo"
+];
+
 export default function Calcolatore() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -21,6 +25,7 @@ export default function Calcolatore() {
     date: '',
     name: '',
     email: '',
+    prefix: '+39',
     phone: ''
   });
 
@@ -31,14 +36,20 @@ export default function Calcolatore() {
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
+  const getMinDate = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return tomorrow.toISOString().split('T')[0];
+  };
+
   const handleWhatsApp = () => {
     const message = `Ciao AADU! Sono ${formData.name}.\n\n` +
-      `Vorrei richiedere un preventivo per il trasporto di: *${categoryLabels[formData.type]}* (${formData.model}).\n\n` +
-      `📍 *Percorso:* Da ${formData.pickup} a ${formData.delivery}\n` +
-      `📅 *Data desiderata:* ${formData.date}\n\n` +
+      `Vorrei richiedere un preventivo per il trasporto di: *${categoryLabels[formData.type]}*${formData.model ? ` (${formData.model})` : ''}.\n\n` +
+      `*Percorso:* Da ${formData.pickup} a ${formData.delivery}\n` +
+      `*Data desiderata:* ${formData.date}\n\n` +
       `Lascio i miei contatti per essere ricontattato:\n` +
-      `📧 Email: ${formData.email}\n` +
-      `📞 Tel: ${formData.phone}`;
+      `Email: ${formData.email}\n` +
+      `Tel: ${formData.prefix} ${formData.phone}`;
 
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${waNumber}?text=${encoded}`, '_blank');
@@ -152,11 +163,15 @@ export default function Calcolatore() {
                     <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#0d6efd]" />
                     <input
                       name="pickup"
+                      list="cities"
                       value={formData.pickup}
                       onChange={handleChange}
                       placeholder="Città o CAP di ritiro..."
                       className="w-full p-4 pl-12 outline-none font-bold text-zinc-800 placeholder:text-zinc-300"
                     />
+                    <datalist id="cities">
+                      {italianCities.map(city => <option key={city} value={city} />)}
+                    </datalist>
                   </div>
                 </div>
 
@@ -167,6 +182,7 @@ export default function Calcolatore() {
                     <input
                       type="date"
                       name="date"
+                      min={getMinDate()}
                       value={formData.date}
                       onChange={handleChange}
                       className="w-full p-4 pl-12 outline-none font-bold text-zinc-800"
@@ -182,6 +198,7 @@ export default function Calcolatore() {
                     <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-300" />
                     <input
                       name="delivery"
+                      list="cities"
                       value={formData.delivery}
                       onChange={handleChange}
                       placeholder="Città o CAP di arrivo..."
@@ -198,7 +215,7 @@ export default function Calcolatore() {
                       name="model"
                       value={formData.model}
                       onChange={handleChange}
-                      placeholder="Fornisci marca e modello per un'assicurazione precisa"
+                      placeholder="Marca e modello (Opzionale)"
                       className="w-full p-6 pl-12 outline-none font-bold text-zinc-800 bg-transparent placeholder:text-zinc-300"
                     />
                   </div>
@@ -209,7 +226,7 @@ export default function Calcolatore() {
             <div className="mt-16 bg-white border-2 border-zinc-100 p-8 flex items-center shadow-lg shadow-zinc-200/50">
               <button
                 onClick={nextStep}
-                disabled={!formData.pickup || !formData.delivery}
+                disabled={!formData.pickup || !formData.delivery || !formData.date}
                 className="bg-[#b3b3b3] hover:bg-zinc-900 disabled:bg-zinc-200 text-white font-black px-16 py-5 flex items-center tracking-widest text-sm transition-all grayscale hover:grayscale-0"
               >
                 AVANTI <ChevronRight className="ml-2 w-4 h-4" />
@@ -253,7 +270,13 @@ export default function Calcolatore() {
             <div className="mb-16">
               <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-3">Cellulare / WhatsApp</label>
               <div className="flex">
-                <div className="bg-zinc-50 border-2 border-zinc-100 p-6 font-bold text-zinc-400 border-r-0">+39</div>
+                <input
+                  name="prefix"
+                  value={formData.prefix}
+                  onChange={handleChange}
+                  className="w-24 bg-zinc-50 border-2 border-zinc-100 p-6 font-bold text-zinc-400 border-r-0 focus:border-zinc-900 outline-none transition-all"
+                  placeholder="+39"
+                />
                 <input
                   name="phone"
                   value={formData.phone}
@@ -267,9 +290,11 @@ export default function Calcolatore() {
             <div className="flex">
               <button
                 onClick={handleWhatsApp}
-                className="w-full bg-[#c2fadd] hover:bg-[#25D366] text-zinc-600 hover:text-white font-black py-6 flex items-center justify-center tracking-widest text-sm transition-all"
+                disabled={!formData.name || !formData.email || !formData.phone}
+                className="w-full bg-[#c2fadd] hover:bg-[#25D366] disabled:bg-zinc-100 disabled:text-zinc-300 disabled:cursor-not-allowed text-zinc-600 hover:text-white font-black py-6 flex items-center justify-center tracking-widest text-sm transition-all"
               >
-                <img src={whatsappIco} alt="WhatsApp" className="mr-3 w-6 h-6 object-contain" /> WHATSAPP SUBITO
+                <img src={whatsappIco} alt="WhatsApp" className={`mr-3 w-6 h-6 object-contain ${(!formData.name || !formData.email || !formData.phone) ? 'grayscale opacity-30' : ''}`} /> 
+                WHATSAPP SUBITO
               </button>
             </div>
           </div>
