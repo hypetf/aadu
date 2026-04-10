@@ -147,9 +147,11 @@ export default function Business() {
               <div className="pt-4">
                 <button 
                   onClick={handleWhatsApp}
-                  className="w-full bg-[#25D366] hover:bg-green-600 text-white font-black py-5 flex items-center justify-center tracking-widest text-sm transition-all shadow-xl shadow-green-500/20"
+                  disabled={!formData.companyName || !formData.contactPerson || !formData.phone || !formData.email || !formData.details}
+                  className="w-full bg-[#25D366] hover:bg-green-600 disabled:bg-zinc-100 disabled:text-zinc-300 disabled:shadow-none disabled:cursor-not-allowed text-white font-black py-5 flex items-center justify-center tracking-widest text-sm transition-all shadow-xl shadow-green-500/20"
                 >
-                  <MessageCircle className="w-5 h-5 mr-3" /> INVIA RICHIESTA BUSINESS
+                  <MessageCircle className={`w-5 h-5 mr-3 ${(!formData.companyName || !formData.contactPerson || !formData.phone || !formData.email || !formData.details) ? 'opacity-30' : ''}`} /> 
+                  INVIA RICHIESTA BUSINESS
                 </button>
               </div>
             </form>
