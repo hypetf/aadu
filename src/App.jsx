@@ -11,6 +11,7 @@ import GuidaOperativa from './pages/GuidaOperativa.jsx';
 import Business from './pages/Business.jsx';
 import Privacy from './pages/Privacy.jsx';
 import Terms from './pages/Terms.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 // Scroll Handler
 function ScrollHandler() {
@@ -184,6 +185,7 @@ export default function App() {
             <Route path="/business" element={<Business />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AppShell>
       </Router>
